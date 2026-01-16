@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Homepage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0f172a;
+      --muted: #4b5563;
+      --accent: #2563eb;
+      --faint: #f5f7fb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Manrope", "Space Grotesk", sans-serif;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+      text-rendering: optimizeLegibility;
+    }
+
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 64px 22px 90px;
+    }
+
+    section + section {
+      margin-top: 68px;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .about-text p + p {
+      margin-top: 12px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.2s ease, opacity 0.2s ease;
+    }
+
+    a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 100%;
+      height: 1px;
+      background: currentColor;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    a:hover {
+      color: #1d4ed8;
+    }
+
+    a:hover::after {
+      opacity: 1;
+    }
+
+    .profile {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 460px);
+      gap: 18px;
+      align-items: center;
+      justify-content: center;
+      justify-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--faint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    #interest {
+      color: #d0006f;
+      font-style: italic;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      align-items: baseline;
+    }
+
+    .contact-row span {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .contact-row .label {
+      color: var(--muted);
+      font-weight: 500;
+      margin-right: 6px;
+    }
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .section-header p {
+      font-size: 15px;
+    }
+
+    .publications {
+      display: flex;
+      flex-direction: column;
+      gap: 34px;
+      margin-top: 18px;
+    }
+
+    .publication {
+      display: grid;
+      grid-template-columns: minmax(160px, 240px) 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .pub-image {
+      width: 240px;
+      max-width: 100%;
+      height: 180px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--faint);
+    }
+
+    .pub-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      aspect-ratio: 4 / 3;
+    }
+
+    .pub-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 144px;
+      justify-content: space-between;
+      align-self: center;
+    }
+
+    .authors {
+      font-size: 15px;
+    }
+
+    .venue {
+      color: #d0006f;
+      font-weight: 700;
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    .pub-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .link-chip {
+      padding: 0;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+    }
+
+    .link-chip::after {
+      bottom: -2px;
+    }
+
+    strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .status {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #c2410c;
+      display: none;
+    }
+
+    .error .status {
+      display: block;
+    }
+
+    @media (max-width: 780px) {
+      main {
+        padding: 40px 18px 70px;
+      }
+
+      .profile {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .avatar {
+        width: 140px;
+        height: 140px;
+      }
+
+      .publication {
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+
+      .pub-image {
+        width: 240px;
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page" id="page">
+    <section id="profile">
+      <div class="profile">
+        <div class="avatar">
+          <img id="avatar" alt="Profile portrait">
+        </div>
+        <div class="profile-info">
+          <h1 id="name">Your Name</h1>
+          <div class="subtitle" id="title"></div>
+          <div class="subtitle" id="school"></div>
+          <div class="subtitle" id="interest"></div>
+          <div class="contact-row" id="contacts">
+            <span id="email"></span>
+            <a id="github" class="link-chip" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a id="scholar" class="link-chip" target="_blank" rel="noopener noreferrer">Scholar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about-section">
+      <h2>About Me</h2>
+      <div id="about-text" class="about-text"></div>
+    </section>
+
+    <section id="publications-section">
+      <div class="section-header">
+        <h2>Selected Publications</h2>
+        <p id="full-list">
+          For full publication list, please refer to:
+          <a id="full-scholar-link" target="_blank" rel="noopener noreferrer">Google Scholar page</a>.
+        </p>
+      </div>
+      <div class="publications" id="publications"></div>
+    </section>
+    <div class="status" id="status">Unable to load configuration.</div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script>
+    (async function () {
+      const status = document.getElementById("status");
+
+      const formatLinkLabel = (key) => key.split("_").map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(" ");
+
+      const formatAuthors = (authors = [], selfName = "") => {
+        if (!Array.isArray(authors)) return "";
+        const normalizedSelf = selfName.trim().toLowerCase();
+        return authors.map(author => {
+          const clean = (author || "").trim();
+          if (!clean) return "";
+          if (clean.toLowerCase() === normalizedSelf && normalizedSelf) {
+            return `<strong>${clean}</strong>`;
+          }
+          return clean;
+        }).filter(Boolean).join(", ");
+      };
+
+      const createLink = (label, href) => {
+        if (!href) return null;
+        const link = document.createElement("a");
+        link.textContent = `[${label}]`;
+        link.href = href;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.className = "link-chip";
+        return link;
+      };
+
+      const loadYamlConfig = async () => {
+        const response = await fetch("config.yaml");
+        if (!response.ok) throw new Error("Unable to load config.yaml");
+        const yamlText = await response.text();
+        return jsyaml.load(yamlText) || {};
+      };
+
+      const applyConfig = (config = {}) => {
+        const info = config.info || {};
+        const name = info.name || "Your Name";
+
+        document.title = `${name}`;
+
+        const avatar = document.getElementById("avatar");
+        avatar.src = info.picture || "";
+        avatar.alt = name;
+
+        document.getElementById("name").textContent = name;
+        document.getElementById("title").textContent = info.title || "";
+        document.getElementById("school").textContent = info.school || "";
+        document.getElementById("interest").textContent = info.intrest || info.interest || "";
+        document.getElementById("email").textContent = info.email || "";
+
+        const githubLink = document.getElementById("github");
+        const scholarLink = document.getElementById("scholar");
+        githubLink.textContent = "[GitHub]";
+        scholarLink.textContent = "[Scholar]";
+
+        if (info.github) {
+          githubLink.href = info.github;
+          githubLink.style.display = "inline-flex";
+        } else {
+          githubLink.style.display = "none";
+        }
+
+        if (info.google_scholar) {
+          scholarLink.href = info.google_scholar;
+          scholarLink.style.display = "inline-flex";
+        } else {
+          scholarLink.style.display = "none";
+        }
+
+        const about = document.getElementById("about-text");
+        about.innerHTML = "";
+        const aboutText = (config.about || "").trim();
+        if (aboutText) {
+          const paras = aboutText.split(/\n{2,}/).map(p => p.trim()).filter(Boolean);
+          paras.forEach((para, idx) => {
+            const p = document.createElement("p");
+            p.textContent = para;
+            if (idx > 0) p.style.marginTop = "12px";
+            about.appendChild(p);
+          });
+        }
+
+        const fullScholarLink = document.getElementById("full-scholar-link");
+        fullScholarLink.textContent = "[Google Scholar page]";
+        if (info.google_scholar) {
+          fullScholarLink.href = info.google_scholar;
+        } else {
+          fullScholarLink.removeAttribute("href");
+          fullScholarLink.textContent = "[Google Scholar page (link pending)]";
+          fullScholarLink.style.cursor = "default";
+        }
+
+        const publications = document.getElementById("publications");
+        publications.innerHTML = "";
+        const items = config.select_publications || [];
+
+        if (!items.length) {
+          const empty = document.createElement("p");
+          empty.textContent = "No publications added yet.";
+          publications.appendChild(empty);
+        } else {
+          items.forEach(pub => {
+            const container = document.createElement("article");
+            container.className = "publication";
+
+            const imgWrap = document.createElement("div");
+            imgWrap.className = "pub-image";
+            const img = document.createElement("img");
+            img.src = pub.picture || info.picture || "";
+            img.alt = pub.title || "Publication image";
+            imgWrap.appendChild(img);
+
+            const meta = document.createElement("div");
+            meta.className = "pub-meta";
+
+            const title = document.createElement("h3");
+            title.textContent = pub.title || "Untitled";
+
+            const authors = document.createElement("p");
+            authors.className = "authors";
+            authors.innerHTML = formatAuthors(pub.authors, name);
+
+            const venue = document.createElement("p");
+            venue.className = "venue";
+            venue.textContent = pub.venue || "";
+
+            const linkRow = document.createElement("div");
+            linkRow.className = "pub-links";
+
+            const reserved = new Set(["title", "authors", "venue", "picture"]);
+            Object.entries(pub || {}).forEach(([key, value]) => {
+              if (reserved.has(key)) return;
+              if (typeof value !== "string" || !value.trim()) return;
+              const link = createLink(formatLinkLabel(key), value);
+              if (link) linkRow.appendChild(link);
+            });
+
+            meta.appendChild(title);
+            if (authors.innerHTML) meta.appendChild(authors);
+            if (venue.textContent) meta.appendChild(venue);
+            if (linkRow.children.length) meta.appendChild(linkRow);
+
+            container.appendChild(imgWrap);
+            container.appendChild(meta);
+            publications.appendChild(container);
+          });
+        }
+      };
+
+      try {
+        const config = window.SITE_CONFIG || await loadYamlConfig();
+        applyConfig(config);
+      } catch (err) {
+        console.error(err);
+        document.getElementById("page").classList.add("error");
+        status.textContent = "Unable to load config.yaml or config.js.";
+      }
+    })();
+  </script>
+</body>
+</html>
