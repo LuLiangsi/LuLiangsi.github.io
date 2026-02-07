@@ -1,7 +1,7 @@
 window.SITE_CONFIG = {
   info: {
     picture: "img/person/0.JPG",
-    name: "Liangsi Lu",
+    name: "Liangsi Lu (卢梁司)",
     title: "Undergraduate Student",
     school: "Guangdong University of Technology",
     intrest: "Representation Learning, Image Generation",
