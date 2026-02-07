@@ -371,14 +371,16 @@
       const applyConfig = (config = {}) => {
         const info = config.info || {};
         const name = info.name || "Your Name";
+        const chineseName = (info.chinese_name || "").trim();
+        const displayName = chineseName ? `${name} (${chineseName})` : name;
 
-        document.title = `${name}`;
+        document.title = `${displayName}`;
 
         const avatar = document.getElementById("avatar");
         avatar.src = info.picture || "";
-        avatar.alt = name;
+        avatar.alt = displayName;
 
-        document.getElementById("name").textContent = name;
+        document.getElementById("name").textContent = displayName;
         document.getElementById("title").textContent = info.title || "";
         document.getElementById("school").textContent = info.school || "";
         document.getElementById("interest").textContent = info.intrest || info.interest || "";
