@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Academic Homepage</title>
+  <meta name="description" content="Academic homepage of Liangsi Lu (卢梁司).">
+  <meta name="keywords" content="Liangsi Lu,卢梁司">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Liangsi Lu (卢梁司)">
+  <meta property="og:description" content="Academic homepage of Liangsi Lu (卢梁司).">
+  <meta property="og:image" content="img/person/0.JPG">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
@@ -368,6 +374,29 @@
         return jsyaml.load(yamlText) || {};
       };
 
+      const setMeta = (attr, key, value) => {
+        if (!value) return;
+        let el = document.querySelector(`meta[${attr}="${key}"]`);
+        if (!el) {
+          el = document.createElement("meta");
+          el.setAttribute(attr, key);
+          document.head.appendChild(el);
+        }
+        el.setAttribute("content", value);
+      };
+
+      const setJsonLdPerson = (data) => {
+        if (!data || typeof data !== "object") return;
+        let script = document.getElementById("person-jsonld");
+        if (!script) {
+          script = document.createElement("script");
+          script.type = "application/ld+json";
+          script.id = "person-jsonld";
+          document.head.appendChild(script);
+        }
+        script.textContent = JSON.stringify(data, null, 2);
+      };
+
       const applyConfig = (config = {}) => {
         const info = config.info || {};
         const name = info.name || "Your Name";
@@ -385,6 +414,42 @@
         document.getElementById("school").textContent = info.school || "";
         document.getElementById("interest").textContent = info.intrest || info.interest || "";
         document.getElementById("email").textContent = info.email || "";
+
+        const descParts = [
+          displayName,
+          info.title,
+          info.school ? `at ${info.school}` : "",
+          info.intrest || info.interest
+        ].filter(Boolean);
+        const description = descParts.join(" · ");
+        const keywords = [name, chineseName, info.school, info.intrest || info.interest]
+          .filter(Boolean)
+          .join(", ");
+
+        setMeta("name", "description", description);
+        setMeta("name", "keywords", keywords);
+        setMeta("property", "og:title", displayName);
+        setMeta("property", "og:description", description);
+        setMeta("property", "og:type", "website");
+        setMeta("property", "og:image", info.picture || "");
+        setMeta("property", "og:url", window.location.href);
+
+        const sameAs = [info.github, info.google_scholar].filter(Boolean);
+        const personLd = {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name,
+          image: info.picture || undefined,
+          alternateName: chineseName ? [chineseName, displayName] : undefined,
+          jobTitle: info.title || undefined,
+          affiliation: info.school
+            ? { "@type": "CollegeOrUniversity", name: info.school }
+            : undefined,
+          email: info.email || undefined,
+          url: window.location.href,
+          sameAs: sameAs.length ? sameAs : undefined
+        };
+        setJsonLdPerson(personLd);
 
         const githubLink = document.getElementById("github");
         const scholarLink = document.getElementById("scholar");
