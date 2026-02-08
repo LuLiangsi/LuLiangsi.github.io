@@ -414,9 +414,14 @@
     </section>
     <div class="status" id="status">Unable to load configuration.</div>
   </main>
+  <div style="max-width: 340px; margin: 0 auto; padding: 16px 0;">
+    <script
+      type="text/javascript"
+      id="mapmyvisitors"
+      src="https://mapmyvisitors.com/map.js?d=zyM8q9mKdi4kfaKKXGcLyx71ACdBA167FRsFmReOhDc&cl=ffffff&w=320">
+    </script>
+  </div>
 
-  <script src="config.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
   <script>
     (async function () {
       const status = document.getElementById("status");
@@ -447,11 +452,10 @@
         return link;
       };
 
-      const loadYamlConfig = async () => {
-        const response = await fetch("config.yaml");
-        if (!response.ok) throw new Error("Unable to load config.yaml");
-        const yamlText = await response.text();
-        return jsyaml.load(yamlText) || {};
+      const loadJsonConfig = async () => {
+        const response = await fetch("config.json", { cache: "no-cache" });
+        if (!response.ok) throw new Error("Unable to load config.json");
+        return await response.json();
       };
 
       const applyConfig = (config = {}) => {
@@ -538,15 +542,14 @@
       };
 
       try {
-        const config = window.SITE_CONFIG || await loadYamlConfig();
+        const config = await loadJsonConfig();
         applyConfig(config);
       } catch (err) {
         console.error(err);
         document.getElementById("page").classList.add("error");
-        status.textContent = "Unable to load config.yaml or config.js.";
+        status.textContent = "Unable to load config.json.";
       }
     })();
   </script>
-  </div>
 </body>
 </html>
