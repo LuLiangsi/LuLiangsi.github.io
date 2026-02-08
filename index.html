@@ -3,16 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Academic Homepage</title>
-  <meta name="description" content="Academic homepage of Liangsi Lu (卢梁司).">
-  <meta name="keywords" content="Liangsi Lu,卢梁司">
+  <title>Liangsi Lu (卢梁司)</title>
+  <meta name="description" content="Liangsi Lu — School of Mathematics and Statistics, Guangdong University of Technology. Research: Representation Learning, Image Generation.">
+  <meta name="keywords" content="Liangsi Lu,Lu Liangsi,卢梁司,Guangdong University of Technology,Representation Learning,Image Generation">
+  <link rel="canonical" href="https://luliangsi.github.io/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Liangsi Lu (卢梁司)">
-  <meta property="og:description" content="Academic homepage of Liangsi Lu (卢梁司).">
+  <meta property="og:description" content="Liangsi Lu — School of Mathematics and Statistics, Guangdong University of Technology. Research: Representation Learning, Image Generation.">
   <meta property="og:image" content="img/person/0.JPG">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Liangsi Lu",
+    "alternateName": ["Lu Liangsi", "卢梁司"],
+    "url": "https://luliangsi.github.io/",
+    "image": "https://luliangsi.github.io/img/person/0.JPG",
+    "jobTitle": "Undergraduate Student",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "School of Mathematics and Statistics, Guangdong University of Technology"
+    },
+    "sameAs": [
+      "https://scholar.google.com/citations?user=XZSJYAEAAAAJ&hl=en",
+      "https://github.com/LuLiangsi"
+    ],
+    "email": "mailto:lu.liangsi.cn@gmail.com"
+  }
+  </script>
   <style>
     :root {
       --bg: #ffffff;
@@ -34,6 +55,51 @@
       line-height: 1.7;
       letter-spacing: 0.01em;
       text-rendering: optimizeLegibility;
+    }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: #0f172a;
+      color: #f8fafc;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 12px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .nav-brand {
+      color: #f8fafc;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav-links a {
+      color: #e2e8f0;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #cbd5f5;
     }
 
     main {
@@ -296,22 +362,31 @@
     }
   </style>
 </head>
-<body>
+<body id="top">
+  <header class="top-nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#top">Liangsi Lu</a>
+      <nav class="nav-links">
+        <a href="#top">About</a>
+        <a href="#publications-section">Publications</a>
+      </nav>
+    </div>
+  </header>
   <main class="page" id="page">
     <section id="profile">
       <div class="profile">
         <div class="avatar">
-          <img id="avatar" alt="Profile portrait">
+          <img id="avatar" src="img/person/0.JPG" alt="Liangsi Lu portrait">
         </div>
         <div class="profile-info">
-          <h1 id="name">Your Name</h1>
-          <div class="subtitle" id="title"></div>
-          <div class="subtitle" id="school"></div>
-          <div class="subtitle" id="interest"></div>
+          <h1 id="name">Liangsi Lu (卢梁司)</h1>
+          <div class="subtitle" id="title">Undergraduate Student</div>
+          <div class="subtitle" id="school">Guangdong University of Technology</div>
+          <div class="subtitle" id="interest">Computer Vision, Image Generation</div>
           <div class="contact-row" id="contacts">
-            <span id="email"></span>
-            <a id="github" class="link-chip" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a id="scholar" class="link-chip" target="_blank" rel="noopener noreferrer">Scholar</a>
+            <span id="email">lu.liangsi.cn [at] gmail.com</span>
+            <a id="github" class="link-chip" target="_blank" rel="noopener noreferrer" href="https://github.com/LuLiangsi">GitHub</a>
+            <a id="scholar" class="link-chip" target="_blank" rel="noopener noreferrer" href="https://scholar.google.com/citations?user=XZSJYAEAAAAJ&hl=en">Scholar</a>
           </div>
         </div>
       </div>
@@ -327,7 +402,7 @@
         <h2>Selected Publications</h2>
         <p id="full-list">
           For full publication list, please refer to:
-          <a id="full-scholar-link" target="_blank" rel="noopener noreferrer">Google Scholar page</a>.
+          <a id="full-scholar-link" href="https://scholar.google.com/citations?user=XZSJYAEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar page</a>.
         </p>
       </div>
       <div class="publications" id="publications"></div>
@@ -374,101 +449,14 @@
         return jsyaml.load(yamlText) || {};
       };
 
-      const setMeta = (attr, key, value) => {
-        if (!value) return;
-        let el = document.querySelector(`meta[${attr}="${key}"]`);
-        if (!el) {
-          el = document.createElement("meta");
-          el.setAttribute(attr, key);
-          document.head.appendChild(el);
-        }
-        el.setAttribute("content", value);
-      };
-
-      const setJsonLdPerson = (data) => {
-        if (!data || typeof data !== "object") return;
-        let script = document.getElementById("person-jsonld");
-        if (!script) {
-          script = document.createElement("script");
-          script.type = "application/ld+json";
-          script.id = "person-jsonld";
-          document.head.appendChild(script);
-        }
-        script.textContent = JSON.stringify(data, null, 2);
-      };
-
       const applyConfig = (config = {}) => {
-        const info = config.info || {};
-        const name = info.name || "Your Name";
-        const chineseName = (info.chinese_name || "").trim();
-        const displayName = chineseName ? `${name} (${chineseName})` : name;
-
-        document.title = `${displayName}`;
-
-        const avatar = document.getElementById("avatar");
-        avatar.src = info.picture || "";
-        avatar.alt = displayName;
-
-        document.getElementById("name").textContent = displayName;
-        document.getElementById("title").textContent = info.title || "";
-        document.getElementById("school").textContent = info.school || "";
-        document.getElementById("interest").textContent = info.intrest || info.interest || "";
-        document.getElementById("email").textContent = info.email || "";
-
-        const descParts = [
-          displayName,
-          info.title,
-          info.school ? `at ${info.school}` : "",
-          info.intrest || info.interest
-        ].filter(Boolean);
-        const description = descParts.join(" · ");
-        const keywords = [name, chineseName, info.school, info.intrest || info.interest]
-          .filter(Boolean)
-          .join(", ");
-
-        setMeta("name", "description", description);
-        setMeta("name", "keywords", keywords);
-        setMeta("property", "og:title", displayName);
-        setMeta("property", "og:description", description);
-        setMeta("property", "og:type", "website");
-        setMeta("property", "og:image", info.picture || "");
-        setMeta("property", "og:url", window.location.href);
-
-        const sameAs = [info.github, info.google_scholar].filter(Boolean);
-        const personLd = {
-          "@context": "https://schema.org",
-          "@type": "Person",
-          name,
-          image: info.picture || undefined,
-          alternateName: chineseName ? [chineseName, displayName] : undefined,
-          jobTitle: info.title || undefined,
-          affiliation: info.school
-            ? { "@type": "CollegeOrUniversity", name: info.school }
-            : undefined,
-          email: info.email || undefined,
-          url: window.location.href,
-          sameAs: sameAs.length ? sameAs : undefined
-        };
-        setJsonLdPerson(personLd);
+        const selfName = "Liangsi Lu";
+        const fallbackImage = "img/person/0.JPG";
 
         const githubLink = document.getElementById("github");
         const scholarLink = document.getElementById("scholar");
         githubLink.textContent = "[GitHub]";
         scholarLink.textContent = "[Scholar]";
-
-        if (info.github) {
-          githubLink.href = info.github;
-          githubLink.style.display = "inline-flex";
-        } else {
-          githubLink.style.display = "none";
-        }
-
-        if (info.google_scholar) {
-          scholarLink.href = info.google_scholar;
-          scholarLink.style.display = "inline-flex";
-        } else {
-          scholarLink.style.display = "none";
-        }
 
         const about = document.getElementById("about-text");
         about.innerHTML = "";
@@ -485,13 +473,7 @@
 
         const fullScholarLink = document.getElementById("full-scholar-link");
         fullScholarLink.textContent = "[Google Scholar page]";
-        if (info.google_scholar) {
-          fullScholarLink.href = info.google_scholar;
-        } else {
-          fullScholarLink.removeAttribute("href");
-          fullScholarLink.textContent = "[Google Scholar page (link pending)]";
-          fullScholarLink.style.cursor = "default";
-        }
+        // fullScholarLink href is set statically in HTML; leave as-is.
 
         const publications = document.getElementById("publications");
         publications.innerHTML = "";
@@ -509,7 +491,7 @@
             const imgWrap = document.createElement("div");
             imgWrap.className = "pub-image";
             const img = document.createElement("img");
-            img.src = pub.picture || info.picture || "";
+            img.src = pub.picture || fallbackImage;
             img.alt = pub.title || "Publication image";
             imgWrap.appendChild(img);
 
@@ -521,7 +503,7 @@
 
             const authors = document.createElement("p");
             authors.className = "authors";
-            authors.innerHTML = formatAuthors(pub.authors, name);
+            authors.innerHTML = formatAuthors(pub.authors, selfName);
 
             const venue = document.createElement("p");
             venue.className = "venue";
@@ -559,6 +541,11 @@
         status.textContent = "Unable to load config.yaml or config.js.";
       }
     })();
+  </script>
+  <script
+    type="text/javascript"
+    id="mapmyvisitors"
+    src="https://mapmyvisitors.com/map.js?d=oiUzeoDwpTpGWGiy4p_O2U4fMrzPteKJ3dF-HqLLLlk&cl=0f172a&w=320">
   </script>
 </body>
 </html>
