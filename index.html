@@ -41,6 +41,7 @@
       --muted: #4b5563;
       --accent: #2563eb;
       --faint: #f5f7fb;
+      --nav-height: 64px;
     }
 
     * {
@@ -106,6 +107,10 @@
       max-width: 1080px;
       margin: 0 auto;
       padding: 64px 22px 90px;
+    }
+
+    section {
+      scroll-margin-top: calc(var(--nav-height) + 12px);
     }
 
     section + section {
@@ -542,12 +547,6 @@
       }
     })();
   </script>
-  <div style="max-width: 340px; margin: 0 auto; padding: 16px 0;">
-    <script
-      type="text/javascript"
-      id="mapmyvisitors"
-      src="https://mapmyvisitors.com/map.js?d=zyM8q9mKdi4kfaKKXGcLyx71ACdBA167FRsFmReOhDc&cl=ffffff&w=320">
-    </script>
   </div>
 </body>
 </html>
