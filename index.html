@@ -305,6 +305,13 @@
       font-style: italic;
     }
 
+    .venue .venue-note {
+      color: #6b7280;
+      font-weight: 400;
+      font-style: normal;
+      margin-left: 6px;
+    }
+
     .pub-links {
       display: flex;
       gap: 12px;
@@ -508,7 +515,17 @@
 
             const venue = document.createElement("p");
             venue.className = "venue";
-            venue.textContent = pub.venue || "";
+            const venueText = (pub.venue || "").trim();
+            const match = venueText.match(/^(.*?)(\s*\(.*\))/);
+            if (match) {
+              venue.textContent = match[1].trim();
+              const note = document.createElement("span");
+              note.className = "venue-note";
+              note.textContent = match[2];
+              venue.appendChild(note);
+            } else {
+              venue.textContent = venueText;
+            }
 
             const linkRow = document.createElement("div");
             linkRow.className = "pub-links";
