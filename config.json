@@ -1,6 +1,15 @@
 {
-  "about": "Hello! I am Liangsi Lu, currently an undergraduate student majoring in Information and Computing Science at Guangdong University of Technology. My research focuses on Computer Vision, specifically in Image Editing and Image Generation. \n\nVisual perception serves as a high-bandwidth interface for human-world interaction, characterizing reality through a continuous representation. I posit that vision-based AI has the potential to transcend the limitations of discrete, human-biased linguistic systems, thereby offering a more intrinsic description of the world. This modality is capable of capturing patterns beyond the distribution of human language, empowering AI to collaborate creatively with humans in uncovering physical laws and learning robust World Models. To advance this vision, I developed RLSTG, a continuous neural dynamical system designed to model the underlying non-Euclidean geometry of the real world.\n\nI am actively seeking Ph.D. opportunities for Fall 2027.",
+  "about": "Hello! I am Liangsi Lu, currently an undergraduate student majoring in Information and Computing Science at Guangdong University of Technology. My research focuses on Computer Vision, specifically in Image Editing and Image Generation. \n\nVisual perception serves as a high-bandwidth interface for human-world interaction, characterizing reality through a continuous representation. I posit that vision-based AI has the potential to transcend the limitations of discrete, human-biased linguistic systems, thereby offering a more intrinsic description of the world. This modality is capable of capturing patterns beyond the distribution of human language, empowering AI to collaborate creatively with humans in uncovering physical laws and learning robust World Models. To advance this vision, I developed RLSTG, a continuous neural dynamical system designed to model the underlying non-Euclidean geometry of the real world.Furthermore, I proposed ChordEdit, an editing framework that efficiently and stably enhances the capability of generative models to grasp realistic semantics.\n\nI am actively seeking Ph.D. opportunities for Fall 2027.",
   "select_publications": [
+    {
+      "title": "ChordEdit: One-Step Low-Energy Transport for Image Editing",
+      "authors": ["Liangsi Lu", "Xuhang Chen", "Minzhe Guo", "Shichu Li", "Jingchao Wang", "Yang Shi"],
+      "venue": "CVPR 2026 (IEEE Computer Vision and Pattern Recognition)",
+      "picture": "img/publications/03_chord.png",
+      "page": "https://chordedit.github.io",
+      "paper": "https://arxiv.org/pdf/2602.19083",
+      "code": "https://github.com/ChordEdit/ChordEdit"
+    },   
     {
       "title": "Riemannian Liquid Spatio-Temporal Graph Network",
       "authors": ["Liangsi Lu", "Jingchao Wang", "Zhaorong Dai", "Hanqian Liu", "Yang Shi"],
