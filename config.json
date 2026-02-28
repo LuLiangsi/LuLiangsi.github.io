@@ -27,14 +27,6 @@
       "page": "https://mmerror-benchmark.github.io",
       "paper": "https://arxiv.org/pdf/2601.03331",
       "code": ""
-    },
-    {
-      "title": "PC-UNet: An Enforcing Poisson Statistics U-Net for Positron Emission Tomography Denoising",
-      "authors": ["Yang Shi", "Jingchao Wang", "Liangsi Lu", "Mingxuan Huang", "Ruixin He", "Yifeng Xie", "Hanqian Liu", "Minzhe Guo", "Yangyang Liang", "Weipeng Zhang", "Zimeng Li", "Xuhang Chen"],
-      "venue": "BIBM 2025 (IEEE International Conference on Bioinformatics and Biomedicine)",
-      "picture": "img/publications/00_pcunt.png",
-      "paper": "https://arxiv.org/pdf/2510.14995",
-      "code": ""
     }
   ]
 }
