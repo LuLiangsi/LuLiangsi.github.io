@@ -180,12 +180,13 @@
 
     .profile {
       display: grid;
-      grid-template-columns: 180px minmax(0, 460px);
-      gap: 18px;
+      grid-template-columns: 180px fit-content(460px);
+      gap: 120px;
       align-items: center;
       justify-content: center;
       justify-items: center;
-      max-width: 900px;
+      width: fit-content;
+      max-width: 100%;
       margin: 0 auto;
     }
 
@@ -195,6 +196,7 @@
       gap: 0;
       align-items: flex-start;
       text-align: left;
+      justify-self: start;
     }
 
     .profile-info h1 {
@@ -366,8 +368,23 @@
       }
 
       .profile {
+        width: 100%;
         grid-template-columns: 1fr;
         justify-items: center;
+        text-align: center;
+      }
+
+      .profile-info {
+        align-items: center;
+        justify-self: center;
+        text-align: center;
+      }
+
+      .contact-row {
+        justify-content: center;
+      }
+
+      .contact-email {
         text-align: center;
       }
 
