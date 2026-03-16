@@ -192,9 +192,13 @@
     .profile-info {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 0;
       align-items: flex-start;
       text-align: left;
+    }
+
+    .profile-info h1 {
+      margin-bottom: 12px;
     }
 
     .avatar {
@@ -220,6 +224,11 @@
       font-size: 16px;
     }
 
+    .subtitle-inline {
+      white-space: nowrap;
+      margin-bottom: 4px;
+    }
+
     #interest {
       color: #d0006f;
       font-style: italic;
@@ -227,10 +236,15 @@
 
     .contact-row {
       display: flex;
-      gap: 18px;
+      row-gap: 8px;
+      column-gap: 18px;
       flex-wrap: wrap;
       margin-top: 12px;
       align-items: baseline;
+    }
+
+    .contact-email {
+      flex-basis: 100%;
     }
 
     .contact-row span {
@@ -392,13 +406,12 @@
         </div>
         <div class="profile-info">
           <h1 id="name">Liangsi Lu (卢梁司)</h1>
-          <div class="subtitle" id="title">Undergraduate Student</div>
-          <div class="subtitle" id="school">Guangdong University of Technology</div>
-          <div class="subtitle" id="interest">Computer Vision, Image Generation</div>
+          <div class="subtitle subtitle-inline"><span id="title">Undergraduate Student</span>, <span id="school">GDUT</span></div>
+          <div class="subtitle" id="interest">Vision Generation</div>
           <div class="contact-row" id="contacts">
-            <span id="email">lu.liangsi.cn [at] gmail.com</span>
-            <a id="github" class="link-chip" target="_blank" rel="noopener noreferrer" href="https://github.com/LuLiangsi">GitHub</a>
-            <a id="scholar" class="link-chip" target="_blank" rel="noopener noreferrer" href="https://scholar.google.com/citations?user=XZSJYAEAAAAJ&hl=en">Scholar</a>
+            <span id="email" class="contact-email">lu.liangsi.cn [at] gmail.com</span>
+            <a id="scholar" class="link-chip" target="_blank" rel="noopener noreferrer" href="https://scholar.google.com/citations?user=XZSJYAEAAAAJ&hl=en">[Google Scholar]</a>
+            <a id="github" class="link-chip" target="_blank" rel="noopener noreferrer" href="https://github.com/LuLiangsi">[GitHub]</a>
           </div>
         </div>
       </div>
@@ -464,7 +477,7 @@
         const githubLink = document.getElementById("github");
         const scholarLink = document.getElementById("scholar");
         githubLink.textContent = "[GitHub]";
-        scholarLink.textContent = "[Scholar]";
+        scholarLink.textContent = "[Google Scholar]";
 
         const about = document.getElementById("about-text");
         about.innerHTML = "";
