@@ -485,6 +485,16 @@
         // Initialize theme
         setTheme(getPreferredTheme(), false);
 
+        // Fix: Force redraw GIF to ensure it plays on first load
+        // Sometimes browsers don't auto-play GIFs until fully cached or if loaded in background
+        const aboutGif = document.querySelector('.about-image img');
+        if (aboutGif) {
+            setTimeout(() => {
+                const currentSrc = aboutGif.src;
+                aboutGif.src = currentSrc; 
+            }, 500);
+        }
+
         // Toggle event
         toggleBtn.addEventListener('click', () => {
             const currentTheme = html.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
