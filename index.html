@@ -11,37 +11,36 @@
   <meta property="og:title" content="Liangsi Lu (卢梁司)">
   <meta property="og:description" content="Liangsi Lu — School of Mathematics and Statistics, Guangdong University of Technology. Research: Representation Learning, Image Generation.">
   <meta property="og:image" content="img/person/0.JPG">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Liangsi Lu",
-    "alternateName": ["Lu Liangsi", "卢梁司"],
-    "url": "https://luliangsi.github.io/",
-    "image": "https://luliangsi.github.io/img/person/0.JPG",
-    "jobTitle": "Undergraduate Student",
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name": "School of Mathematics and Statistics, Guangdong University of Technology"
-    },
-    "sameAs": [
-      "https://scholar.google.com/citations?user=XZSJYAEAAAAJ&hl=en",
-      "https://github.com/LuLiangsi"
-    ],
-    "email": "mailto:lu.liangsi.cn@gmail.com"
-  }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
   <style>
     :root {
       --bg: #ffffff;
-      --text: #0f172a;
-      --muted: #4b5563;
-      --accent: #2563eb;
-      --faint: #f5f7fb;
-      --nav-height: 64px;
+      --text: #000000;
+      --muted: #6e6e6e;
+      --border: #e5e5e5;
+      --hover: #000000;
+      --link-hover: #555;
+      --avatar-bg: #f0f0f0;
+      --pub-img-bg: #f7f7f7;
+      --pub-hover-bg: #f5f5f5;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-serif: "Source Serif 4", Georgia, Cambria, "Times New Roman", Times, serif;
+    }
+
+    [data-theme="dark"] {
+      --bg: #000000;
+      --text: #ffffff;
+      --muted: #888888;
+      --border: #333333;
+      --hover: #ffffff;
+      --link-hover: #cccccc;
+      --avatar-bg: #1a1a1a;
+      --pub-img-bg: #111111;
+      --pub-hover-bg: #111111;
     }
 
     * {
@@ -52,542 +51,585 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: "Manrope", "Space Grotesk", sans-serif;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-      text-rendering: optimizeLegibility;
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .top-nav {
+    /* Layout & Grid */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    header {
+      padding: 24px 0;
+      background: var(--bg);
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: #0f172a;
-      color: #f8fafc;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      z-index: 100;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    
+    header.scrolled {
+      border-bottom: 1px solid var(--border);
     }
 
     .nav-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 12px 22px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      align-items: center;
     }
 
-    .nav-brand {
-      color: #f8fafc;
-      font-weight: 700;
-      letter-spacing: -0.01em;
+    .brand {
+      font-weight: 600;
+      font-size: 16px;
       text-decoration: none;
-      font-size: 18px;
+      color: var(--text);
+      letter-spacing: -0.01em;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: 18px;
+      gap: 32px;
     }
 
     .nav-links a {
-      color: #e2e8f0;
-      font-weight: 600;
+      color: var(--text);
       text-decoration: none;
-      font-size: 15px;
-      transition: color 0.2s ease;
+      font-size: 14px;
+      font-weight: 500;
+      transition: opacity 0.2s;
     }
 
     .nav-links a:hover {
-      color: #cbd5f5;
+      opacity: 0.6;
     }
 
-    main {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 64px 22px 90px;
+    /* Hero Section */
+    .hero {
+      padding: 80px 0 100px;
     }
 
-    section {
-      scroll-margin-top: calc(var(--nav-height) + 12px);
-    }
-
-    section + section {
-      margin-top: 68px;
-    }
-
-    h1, h2, h3, p {
-      margin: 0;
+    .hero-content {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 60px;
+      align-items: center;
     }
 
     h1 {
-      font-size: 36px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
-
-    h2 {
-      font-size: 18px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 700;
-    }
-
-    h3 {
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 1.35;
-    }
-
-    p {
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .about-text p + p {
-      margin-top: 12px;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      position: relative;
-      transition: color 0.2s ease, opacity 0.2s ease;
-    }
-
-    a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 100%;
-      height: 1px;
-      background: currentColor;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-
-    a:hover {
-      color: #1d4ed8;
-    }
-
-    a:hover::after {
-      opacity: 1;
-    }
-
-    .profile {
-      display: grid;
-      grid-template-columns: 180px fit-content(460px);
-      gap: 120px;
-      align-items: center;
-      justify-content: center;
-      justify-items: center;
-      width: fit-content;
-      max-width: 100%;
-      margin: 0 auto;
-    }
-
-    .profile-info {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      align-items: flex-start;
-      text-align: left;
-      justify-self: start;
-    }
-
-    .profile-info h1 {
-      margin-bottom: 12px;
-    }
-
-    .avatar {
-      width: 180px;
-      height: 180px;
-      border-radius: 24px;
-      overflow: hidden;
-      background: var(--faint);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      font-size: 48px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin: 0 0 24px 0;
     }
 
     .subtitle {
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 16px;
-    }
-
-    .subtitle-inline {
-      white-space: nowrap;
-      margin-bottom: 4px;
-    }
-
-    #interest {
-      color: #d0006f;
-      font-style: italic;
-    }
-
-    .contact-row {
-      display: flex;
-      row-gap: 8px;
-      column-gap: 18px;
-      flex-wrap: wrap;
-      margin-top: 12px;
-      align-items: baseline;
-    }
-
-    .contact-email {
-      flex-basis: 100%;
-    }
-
-    .contact-row span {
+      font-size: 20px;
+      line-height: 1.4;
       color: var(--text);
-      font-weight: 600;
+      margin-bottom: 32px;
+      font-weight: 400;
+      max-width: 500px;
     }
 
-    .contact-row .label {
-      color: var(--muted);
+    .meta-info {
+      font-size: 16px;
+      color: var(--text);
       font-weight: 500;
-      margin-right: 6px;
+      margin-bottom: 8px;
     }
 
-    .section-header {
+    .social-links {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .section-header p {
-      font-size: 15px;
-    }
-
-    .publications {
-      display: flex;
-      flex-direction: column;
-      gap: 34px;
-      margin-top: 18px;
-    }
-
-    .publication {
-      display: grid;
-      grid-template-columns: minmax(160px, 240px) 1fr;
       gap: 20px;
-      align-items: start;
+      margin-top: 32px;
     }
 
-    .pub-image {
-      width: 240px;
-      max-width: 100%;
-      height: 180px;
-      border-radius: 18px;
+    .social-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      border-bottom: 1px solid var(--text);
+      padding-bottom: 2px;
+      transition: all 0.2s;
+    }
+
+    .social-links a:hover {
+      opacity: 0.6;
+    }
+
+    .avatar-container {
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%; /* Square aspect ratio */
+      position: relative;
+      background: var(--avatar-bg);
       overflow: hidden;
-      background: var(--faint);
+      border-radius: 6px;
     }
 
-    .pub-image img {
+    .avatar-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      aspect-ratio: 4 / 3;
     }
 
-    .pub-meta {
+    /* Section Styles */
+    section {
+      padding: 60px 0;
+    }
+
+    h2 {
+      font-size: 24px;
+      letter-spacing: -0.01em;
+      margin: 0 0 40px 0;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    /* About Text */
+    .about-wrapper {
+      display: grid;
+      grid-template-columns: 3fr 1.5fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      color: var(--text);
+      font-weight: 300;
+    }
+
+    .about-image {
+      width: 100%;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+    }
+    
+    .about-caption {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    /* Publications List */
+    .publication-item {
+      display: grid;
+      grid-template-columns: 240px 1fr; /* Image on left, content grid on right */
+      gap: 40px;
+      margin-bottom: 20px;
+      padding: 24px;
+      align-items: start;
+      border-radius: 12px;
+      transition: background-color 0.2s;
+    }
+
+    .publication-item.has-link {
+        cursor: pointer;
+    }
+    
+    .publication-item.has-link:hover {
+        background-color: var(--pub-hover-bg);
+    }
+
+    .pub-image-wrapper {
+        background: var(--pub-img-bg);
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: 6px;
+    }
+    
+    .pub-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+    
+    .publication-item:hover .pub-image-wrapper img {
+        transform: scale(1.03);
+    }
+
+    .pub-content {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      min-height: 144px;
-      justify-content: space-between;
-      align-self: center;
     }
 
-    .authors {
+    .pub-title {
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.3;
+      margin: 0 0 12px 0;
+      letter-spacing: -0.01em;
+    }
+    
+    strong {
+        font-weight: 600;
+    }
+
+    .pub-authors {
       font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      line-height: 1.5;
     }
 
-    .venue {
-      color: #d0006f;
-      font-weight: 700;
-      font-size: 15px;
-      font-style: italic;
-    }
-
-    .venue .venue-note {
-      color: #6b7280;
-      font-weight: 400;
-      font-style: normal;
-      margin-left: 6px;
+    .pub-venue {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 16px;
     }
 
     .pub-links {
       display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 6px;
+      gap: 16px;
+      margin-top: auto;
     }
 
-    .link-chip {
-      padding: 0;
-      text-decoration: none;
+    .pub-links a {
       font-size: 14px;
-      letter-spacing: 0.02em;
-    }
-
-    .link-chip::after {
-      bottom: -2px;
-    }
-
-    strong {
       color: var(--text);
-      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
 
-    .status {
-      margin-top: 12px;
-      font-size: 14px;
-      color: #c2410c;
-      display: none;
+    .pub-links a:hover {
+      text-decoration: underline;
+    }
+    
+    .pub-links a::after {
+        content: "↗";
+        font-size: 12px;
     }
 
-    .error .status {
-      display: block;
+    /* Footer */
+    footer {
+      padding: 60px 0;
+    }
+    
+    .footer-text {
+        font-size: 14px;
+        color: var(--muted);
+    }
+    
+    a { 
+        color: inherit; 
     }
 
-    @media (max-width: 780px) {
-      main {
-        padding: 40px 18px 70px;
-      }
-
-      .profile {
-        width: 100%;
+    @media (max-width: 768px) {
+      .hero-content {
         grid-template-columns: 1fr;
-        justify-items: center;
-        text-align: center;
+        gap: 40px;
       }
-
-      .profile-info {
-        align-items: center;
-        justify-self: center;
-        text-align: center;
+      
+      .about-wrapper {
+        display: grid;
+        grid-template-columns: 1fr; 
+        gap: 40px;
       }
-
-      .contact-row {
-        justify-content: center;
-      }
-
-      .contact-email {
-        text-align: center;
-      }
-
-      .avatar {
-        width: 140px;
-        height: 140px;
-      }
-
-      .publication {
+      
+      .publication-item {
         grid-template-columns: 1fr;
-        justify-items: center;
+        gap: 20px;
       }
-
-      .pub-image {
-        width: 240px;
-        height: 180px;
+      
+      h1 {
+        font-size: 36px;
+      }
+      
+      .nav-links {
+          display: none; /* Simplify for mobile for now or change to hamburger if needed, but keeping simple */
       }
     }
   </style>
 </head>
 <body id="top">
-  <header class="top-nav">
-    <div class="nav-inner">
-      <a class="nav-brand" href="#top">Liangsi Lu</a>
-      <nav class="nav-links">
-        <a href="#top">About</a>
-        <a href="#publications-section">Publications</a>
-      </nav>
+  
+  <header id="site-header">
+    <div class="container">
+        <div class="nav-inner">
+        <a class="brand" href="#top">Liangsi Lu</a>
+        <div style="display: flex; gap: 24px; align-items: center;">
+            <nav class="nav-links">
+                <a href="#about-section">Research</a>
+                <a href="#publications-section">Publications</a>
+            </nav>
+            <button id="theme-toggle" aria-label="Toggle dark mode" style="background: none; border: none; cursor: pointer; color: var(--text); padding: 4px; display: flex; align-items: center;">
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+        </div>
+        </div>
     </div>
   </header>
-  <main class="page" id="page">
-    <section id="profile">
-      <div class="profile">
-        <div class="avatar">
-          <img id="avatar" src="img/person/0.JPG" alt="Liangsi Lu portrait">
-        </div>
-        <div class="profile-info">
-          <h1 id="name">Liangsi Lu (卢梁司)</h1>
-          <div class="subtitle subtitle-inline"><span id="title">Undergraduate Student</span>, <span id="school">GDUT</span></div>
-          <div class="subtitle" id="interest">Vision Generation</div>
-          <div class="contact-row" id="contacts">
-            <span id="email" class="contact-email">lu.liangsi.cn [at] gmail.com</span>
-            <a id="scholar" class="link-chip" target="_blank" rel="noopener noreferrer" href="https://scholar.google.com/citations?user=XZSJYAEAAAAJ&hl=en">[Google Scholar]</a>
-            <a id="github" class="link-chip" target="_blank" rel="noopener noreferrer" href="https://github.com/LuLiangsi">[GitHub]</a>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div>
+            <h1 id="name">Liangsi Lu<br><span style="color: var(--muted); font-size: 0.6em; display:block; margin-top: 8px;">(卢梁司)</span></h1>
+            <div class="subtitle">
+              <span id="title">Undergraduate Student</span> at <span id="school">GDUT</span>.<br>
+              Focusing on <span id="interest">Representation Learning and Visual Generation</span>.
+            </div>
+            
+             <div class="contact-row" id="contacts">
+                <!-- Links will be injected here -->
+             </div>
+             <div class="meta-info" style="margin-top: 24px; font-family: 'Courier New', monospace;">
+                 lu.liangsi.cn [at] gmail.com
+             </div>
+          </div>
+          
+          <div>
+              <div class="avatar-container">
+                <img id="avatar" src="img/person/0.JPG" alt="Liangsi Lu">
+              </div>
           </div>
         </div>
       </div>
     </section>
 
     <section id="about-section">
-      <h2>About Me</h2>
-      <div id="about-text" class="about-text"></div>
+      <div class="container">
+        <h2>About</h2>
+        <div class="about-wrapper">
+          <div id="about-text" class="about-text">
+            <!-- Content from config.json -->
+          </div>
+          <div class="about-image">
+             <img src="img/person/about.gif" alt="About Image">
+             <div id="about-caption" class="about-caption"></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="publications-section">
-      <div class="section-header">
-        <h2>Selected Publications</h2>
-        <p id="full-list">
-          For full publication list, please refer to:
-          <a id="full-scholar-link" href="https://scholar.google.com/citations?user=XZSJYAEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar page</a>.
-        </p>
+      <div class="container">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 40px;">
+            <h2>Selected Publications</h2>
+            <a id="full-scholar-link" href="https://scholar.google.com/citations?user=XZSJYAEAAAAJ&hl=en" target="_blank" style="font-size: 14px; text-decoration: underline;">View all on Google Scholar</a>
+        </div>
+        
+        <div id="publications">
+             <!-- Content from config.json -->
+        </div>
       </div>
-      <div class="publications" id="publications"></div>
     </section>
-    <div class="status" id="status">Unable to load configuration.</div>
   </main>
+
+  <footer>
+      <div class="container">
+          <div class="footer-text">
+              &copy; 2026 Liangsi Lu.
+          </div>
+      </div>
+  </footer>
+
   <script>
     (async function () {
-      const status = document.getElementById("status");
+        // Dark Mode Logic
+        const toggleBtn = document.getElementById('theme-toggle');
+        const moonIcon = document.getElementById('moon-icon');
+        const sunIcon = document.getElementById('sun-icon');
+        const html = document.documentElement;
 
-      const formatLinkLabel = (key) => key.split("_").map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(" ");
+        const setTheme = (theme, persist = false) => {
+            if (theme === 'dark') {
+                html.setAttribute('data-theme', 'dark');
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+            } else {
+                html.removeAttribute('data-theme');
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+            }
+            if (persist) {
+                sessionStorage.setItem('theme', theme);
+            }
+        };
 
-      const formatAuthors = (authors = [], selfName = "") => {
-        if (!Array.isArray(authors)) return "";
-        const normalizedSelf = selfName.trim().toLowerCase();
-        return authors.map(author => {
-          const clean = (author || "").trim();
-          if (!clean) return "";
-          if (clean.toLowerCase() === normalizedSelf && normalizedSelf) {
-            return `<strong>${clean}</strong>`;
-          }
-          return clean;
-        }).filter(Boolean).join(", ");
-      };
+        const getPreferredTheme = () => {
+            const savedTheme = sessionStorage.getItem('theme');
+            if (savedTheme) {
+                return savedTheme;
+            }
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
 
-      const createLink = (label, href) => {
-        if (!href) return null;
-        const link = document.createElement("a");
-        link.textContent = `[${label}]`;
-        link.href = href;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.className = "link-chip";
-        return link;
-      };
+        // Initialize theme
+        setTheme(getPreferredTheme(), false);
+
+        // Toggle event
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme, true);
+        });
+
+        // Listen for system changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            if (!sessionStorage.getItem('theme')) {
+                setTheme(e.matches ? 'dark' : 'light', false);
+            }
+        });
+
+        // Sticky Header Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('site-header');
+            if(window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
 
       const loadJsonConfig = async () => {
-        const response = await fetch("config.json", { cache: "no-cache" });
-        if (!response.ok) throw new Error("Unable to load config.json");
-        return await response.json();
+        try {
+            const response = await fetch("config.json", { cache: "no-cache" });
+            if (!response.ok) throw new Error("Unable to load config.json");
+            return await response.json();
+        } catch (e) {
+            console.error(e);
+        }
       };
 
-      const applyConfig = (config = {}) => {
-        const selfName = "Liangsi Lu";
-        const fallbackImage = "img/person/0.JPG";
+      const formatAuthors = (authors = [], selfName = "Liangsi Lu") => {
+        if (!Array.isArray(authors)) return "";
+        const normalizedSelf = selfName.toLowerCase();
+        return authors.map(author => {
+          if (author.toLowerCase().includes(normalizedSelf)) {
+            return `<strong>${author}</strong>`;
+          }
+          return author;
+        }).join(", ");
+      };
 
-        const githubLink = document.getElementById("github");
-        const scholarLink = document.getElementById("scholar");
-        githubLink.textContent = "[GitHub]";
-        scholarLink.textContent = "[Google Scholar]";
-
-        const about = document.getElementById("about-text");
-        about.innerHTML = "";
-        const aboutText = (config.about || "").trim();
-        if (aboutText) {
-          const paras = aboutText.split(/\n{2,}/).map(p => p.trim()).filter(Boolean);
-          paras.forEach((para, idx) => {
-            const p = document.createElement("p");
-            p.textContent = para;
-            if (idx > 0) p.style.marginTop = "12px";
-            about.appendChild(p);
-          });
+      const createPublicationItem = (pub) => {
+        const item = document.createElement('div');
+        item.className = 'publication-item';
+        
+        // Image Side
+        const imgWrapper = document.createElement('div');
+        imgWrapper.className = 'pub-image-wrapper';
+        if(pub.picture) {
+            const img = document.createElement('img');
+            img.src = pub.picture;
+            img.alt = pub.title;
+            imgWrapper.appendChild(img);
         }
-
-        const fullScholarLink = document.getElementById("full-scholar-link");
-        fullScholarLink.textContent = "[Google Scholar page]";
-        // fullScholarLink href is set statically in HTML; leave as-is.
-
-        const publications = document.getElementById("publications");
-        publications.innerHTML = "";
-        const items = config.select_publications || [];
-
-        if (!items.length) {
-          const empty = document.createElement("p");
-          empty.textContent = "No publications added yet.";
-          publications.appendChild(empty);
-        } else {
-          items.forEach(pub => {
-            const container = document.createElement("article");
-            container.className = "publication";
-
-            const imgWrap = document.createElement("div");
-            imgWrap.className = "pub-image";
-            const img = document.createElement("img");
-            img.src = pub.picture || fallbackImage;
-            img.alt = pub.title || "Publication image";
-            imgWrap.appendChild(img);
-
-            const meta = document.createElement("div");
-            meta.className = "pub-meta";
-
-            const title = document.createElement("h3");
-            title.textContent = pub.title || "Untitled";
-
-            const authors = document.createElement("p");
-            authors.className = "authors";
-            authors.innerHTML = formatAuthors(pub.authors, selfName);
-
-            const venue = document.createElement("p");
-            venue.className = "venue";
-            const venueText = (pub.venue || "").trim();
-            const match = venueText.match(/^(.*?)(\s*\(.*\))/);
-            if (match) {
-              venue.textContent = match[1].trim();
-              const note = document.createElement("span");
-              note.className = "venue-note";
-              note.textContent = match[2];
-              venue.appendChild(note);
-            } else {
-              venue.textContent = venueText;
-            }
-
-            const linkRow = document.createElement("div");
-            linkRow.className = "pub-links";
-
-            const reserved = new Set(["title", "authors", "venue", "picture"]);
-            Object.entries(pub || {}).forEach(([key, value]) => {
-              if (reserved.has(key)) return;
-              if (typeof value !== "string" || !value.trim()) return;
-              const link = createLink(formatLinkLabel(key), value);
-              if (link) linkRow.appendChild(link);
+        
+        // Content Side
+        const content = document.createElement('div');
+        content.className = 'pub-content';
+        
+        const title = document.createElement('h3');
+        title.className = 'pub-title';
+        title.textContent = pub.title;
+        
+        const authors = document.createElement('div');
+        authors.className = 'pub-authors';
+        authors.innerHTML = formatAuthors(pub.authors);
+        
+        const venue = document.createElement('div');
+        venue.className = 'pub-venue';
+        venue.textContent = pub.venue;
+        
+        const links = document.createElement('div');
+        links.className = 'pub-links';
+        
+        if (pub.page) {
+            item.classList.add('has-link');
+            item.addEventListener('click', (e) => {
+                // Prevent navigation if clicking on an anchor tag inside
+                if (e.target.tagName !== 'A' && !e.target.closest('a')) {
+                    window.open(pub.page, '_blank');
+                }
             });
-
-            meta.appendChild(title);
-            if (authors.innerHTML) meta.appendChild(authors);
-            if (venue.textContent) meta.appendChild(venue);
-            if (linkRow.children.length) meta.appendChild(linkRow);
-
-            container.appendChild(imgWrap);
-            container.appendChild(meta);
-            publications.appendChild(container);
-          });
+            
+            const l = document.createElement('a'); l.href = pub.page; l.textContent = "Project Page"; l.target = "_blank"; links.appendChild(l);
         }
+        if (pub.paper) {
+            const l = document.createElement('a'); l.href = pub.paper; l.textContent = "Paper"; l.target = "_blank"; links.appendChild(l);
+        }
+        if (pub.code) {
+            const l = document.createElement('a'); l.href = pub.code; l.textContent = "Code"; l.target = "_blank"; links.appendChild(l);
+        }
+
+        content.appendChild(title);
+        content.appendChild(authors);
+        content.appendChild(venue);
+        content.appendChild(links);
+        
+        item.appendChild(imgWrapper);
+        item.appendChild(content);
+        
+        return item;
       };
 
-      try {
-        const config = await loadJsonConfig();
-        applyConfig(config);
-      } catch (err) {
-        console.error(err);
-        document.getElementById("page").classList.add("error");
-        status.textContent = "Unable to load config.json.";
-      }
+      const init = async () => {
+        const data = await loadJsonConfig();
+        if (!data) return;
+
+        // Apply About
+        const aboutEl = document.getElementById("about-text");
+        if (data.about) {
+            // Convert newlines to paragraphs
+            aboutEl.innerHTML = data.about.split('\n\n').map(p => `<p>${p}</p>`).join('');
+        }
+        
+        // Apply About Caption
+        const captionEl = document.getElementById("about-caption");
+        if (data.about_image_caption && captionEl) {
+            captionEl.textContent = data.about_image_caption;
+        }
+
+        // Apply Publications
+        const pubsEl = document.getElementById("publications");
+        if (data.select_publications) {
+            pubsEl.innerHTML = '';
+            data.select_publications.forEach(pub => {
+                pubsEl.appendChild(createPublicationItem(pub));
+            });
+        }
+        
+        // Apply Contacts to Hero
+        const contactsEl = document.getElementById("contacts");
+        contactsEl.className = 'social-links';
+        contactsEl.innerHTML = `
+            <a href="https://scholar.google.com/citations?user=XZSJYAEAAAAJ&hl=en" target="_blank">Google Scholar</a>
+            <a href="https://github.com/LuLiangsi" target="_blank">GitHub</a>
+            <a href="https://x.com/LiangsiLu" target="_blank">X</a>
+            <a href="https://www.xiaohongshu.com/user/profile/5eb921a6000000000100778c?xsec_token=AByVBoSvBQCyy3YELLSA6d-eIl5mX1bnnb1wWkPx0bEE4=&xsec_source=pc_note" target="_blank">Xiaohongshu</a>
+        `;
+      };
+
+      init();
     })();
   </script>
 </body>

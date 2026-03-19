@@ -1,5 +1,6 @@
 {
-  "about": "Hello! I am Liangsi Lu, currently an undergraduate student majoring in Information and Computing Science at Guangdong University of Technology. My research focuses on Computer Vision, specifically in Image Editing and Image Generation. \n\nVisual perception serves as a high-bandwidth interface for human–world interaction, characterizing reality through continuous representations. I posit that vision-based AI can provide a more intrinsic, geometry- and physics-grounded description of the world. By learning from rich sensory observations, it can capture regularities that are underspecified or absent in text, enabling AI to collaborate with humans in uncovering physical laws and learning robust world models. To advance this vision, I developed RLSTG, a continuous neural dynamical system designed to model the underlying non-Euclidean geometry of the real world.Furthermore, I proposed ChordEdit, an editing framework that efficiently and stably enhances the capability of generative models to grasp realistic semantics.\n\nI am actively seeking Ph.D. opportunities for Fall 2027.",
+  "about": "Hello! I am Liangsi Lu, currently an undergraduate student majoring in Information and Computing Science at Guangdong University of Technology. My research focuses on Representation Learning and in Visual Generation. \n\nVision serves as a high-bandwidth interface for interaction, characterizing reality through continuous representations. I posit that visual representations can provide a more intrinsic description of the world. By learning from rich sensory observations, they can capture regularities that are underspecified or absent in text, enabling AI to collaborate with humans in uncovering physical laws and learning robust world models. To advance this goal, I developed RLSTG, a continuous neural dynamical system designed to model the underlying non-Euclidean geometry of the real world. Furthermore, I proposed ChordEdit, an editing framework that efficiently and stably enhances the capability of generative models to grasp realistic semantics.\n\nI am actively seeking Ph.D. opportunities for Fall 2027.",
+  "about_image_caption":"A one-step Editing Framework: ChordEdit",
   "select_publications": [
     {
       "title": "ChordEdit: One-Step Low-Energy Transport for Image Editing",
@@ -18,15 +19,6 @@
       "page": "https://rlstg.github.io",
       "paper": "https://arxiv.org/pdf/2601.14115",
       "code": "https://github.com/RLSTG/RLSTG"
-    },
-    {
-      "title": "MMErroR: A Benchmark for Erroneous Reasoning in Vision-Language Models",
-      "authors": ["Yang Shi", "Yifeng Xie", "Minzhe Guo", "Liangsi Lu", "Mingxuan Huang", "Jingchao Wang", "Zhihong Zhu", "Boyan Xu", "Zhiqi Huang"],
-      "venue": "arXiv",
-      "picture": "img/publications/02_MMErroR.png",
-      "page": "https://mmerror-benchmark.github.io",
-      "paper": "https://arxiv.org/pdf/2601.03331",
-      "code": ""
     }
   ]
 }
