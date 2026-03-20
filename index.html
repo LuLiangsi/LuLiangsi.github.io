@@ -112,7 +112,7 @@
 
     /* Hero Section */
     .hero {
-      padding: 80px 0 100px;
+      padding: 40px 0 80px;
     }
 
     .hero-content {
@@ -344,7 +344,16 @@
         grid-template-columns: 1fr;
         gap: 40px;
       }
+
+      .hero-content > div:nth-child(2) {
+        order: -1;
+      }
       
+      .avatar-container {
+        width: 300px;
+        padding-bottom: 300px;
+      }
+
       .about-wrapper {
         display: grid;
         grid-template-columns: 1fr; 
@@ -363,6 +372,30 @@
       .nav-links {
           display: none; /* Simplify for mobile for now or change to hamburger if needed, but keeping simple */
       }
+    }
+
+    /* Scroll Indicator */
+    .scroll-indicator {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0.6;
+        animation: bounce 2s infinite;
+        transition: opacity 0.5s;
+        z-index: 90;
+        cursor: pointer;
+        color: var(--text);
+    }
+    
+    .scroll-indicator.hidden {
+        opacity: 0;
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+        40% {transform: translateX(-50%) translateY(-10px);}
+        60% {transform: translateX(-50%) translateY(-5px);}
     }
   </style>
 </head>
@@ -451,8 +484,51 @@
       </div>
   </footer>
 
+  <div id="scroll-indicator" class="scroll-indicator">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+  </div>
+
   <script>
     (async function () {
+        // Scroll Indicator Logic
+        const indicator = document.getElementById('scroll-indicator');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                indicator.classList.add('hidden');
+            } else {
+                indicator.classList.remove('hidden');
+            }
+        });
+        
+        // Click to scroll
+        const smoothScroll = (targetId) => {
+            const element = document.getElementById(targetId);
+            if(element) {
+               const headerOffset = 80;
+               const elementPosition = element.getBoundingClientRect().top;
+               const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+               window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+               });
+            }
+        };
+
+        indicator.addEventListener('click', () => {
+            smoothScroll('about-section');
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                smoothScroll(targetId);
+            });
+        });
+
         // Dark Mode Logic
         const toggleBtn = document.getElementById('theme-toggle');
         const moonIcon = document.getElementById('moon-icon');
