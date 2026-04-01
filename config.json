@@ -1,6 +1,6 @@
 {
   "about": "Hello! I am Liangsi Lu, currently an undergraduate student majoring in Information and Computing Science at Guangdong University of Technology. My research focuses on Representation Learning and in Visual Generation. \n\nVision serves as a high-bandwidth interface for interaction, characterizing reality through continuous representations. I posit that visual representations can provide a more intrinsic description of the world. By learning from rich sensory observations, they can capture regularities that are underspecified or absent in text, enabling AI to collaborate with humans in uncovering physical laws and learning robust world models. To advance this goal, I developed RLSTG, a continuous neural dynamical system designed to model the underlying non-Euclidean geometry of the real world. Furthermore, I proposed ChordEdit, an editing framework that efficiently and stably enhances the capability of generative models to grasp realistic semantics.\n\nI am actively seeking Ph.D. opportunities for Fall 2027.",
-  "about_image_caption":"A one-step Editing Framework: ChordEdit",
+  "about_image_caption":"Our new editing framework. Coming soon.",
   "select_publications": [
     {
       "title": "ChordEdit: One-Step Low-Energy Transport for Image Editing",
