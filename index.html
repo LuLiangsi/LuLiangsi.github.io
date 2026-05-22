@@ -745,6 +745,9 @@
             
             const l = document.createElement('a'); l.href = pub.page; l.textContent = "Project Page"; l.target = "_blank"; links.appendChild(l);
         }
+        if (pub.conference_page) {
+            const l = document.createElement('a'); l.href = pub.conference_page; l.textContent = "Conference Page"; l.target = "_blank"; links.appendChild(l);
+        }
         if (pub.paper) {
             const l = document.createElement('a'); l.href = pub.paper; l.textContent = "Paper"; l.target = "_blank"; links.appendChild(l);
         }
