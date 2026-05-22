@@ -303,7 +303,8 @@
 
     .pub-links {
       display: flex;
-      gap: 16px;
+      flex-wrap: wrap;
+      gap: 10px 16px;
       margin-top: auto;
     }
 
@@ -314,6 +315,7 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
+      white-space: nowrap;
     }
 
     .pub-links a:hover {
@@ -363,6 +365,10 @@
       .publication-item {
         grid-template-columns: 1fr;
         gap: 20px;
+      }
+
+      .pub-links {
+        gap: 8px 12px;
       }
       
       h1 {
